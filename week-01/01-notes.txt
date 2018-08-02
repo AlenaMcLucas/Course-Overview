@@ -1,0 +1,171 @@
+# Unit 1: Introducing Python
+
+1.3 Introducing Python
+
+- algorithm: abstract steps for solving a problem
+- program: instructions encoded in a programming language
+
+1.4 Programming Language Characteristics
+
+- each language has a different syntax and is good at different things
+- to choose a language, establish if you want a low or high level language
+- low level languages gives you control over the details of a computer, i.e. memory allocation, memory addresses, processor charing, computer hardware, etc; it runs fast but programmer needs to know about hardware and has more code to write
+- high level languages abstract away from these details (memory allocation, memory location, hardware, etc) making many tasks automatic
+- low (statically typed) to high (dynamically typed) level languages are a spectrum, from low to high we have machine code, c/c++, java, and then a proliferation of high level languages
+- machine code is the lowest level and is unreadable to humans - a sequence of bits
+- usually a programmer would program in a higher level language like assemly language that's then compiled into machien language
+- python interpreter translates program into lower level instruction specific to hardware it's running on
+- python is an interpreted language, where source code we write goes to a checker, interpreted, and produces output (more flexibility)
+- compiled languages have compiler first where it translates source code into lower level language called object code (this makes it much faster), then interpreted, and produces output
+
+1.5 The World of Programming Languages
+
+- shell script is a specialized language that lets you interact with your operating system by typing commands into a terminal
+- data-oriented languages: specialized languages for data analysis like R, Stata, SPSS, SAS; treat data as a principle unit of analysis but they make poor general purpose languages
+- lisp languages
+- python is easy to learn, fast to develop in, can be used in commercial applicaitons, data science libraries, and simple syntax; it does have worse performance than C or Java but can be negligible
+
+1.6 The Command Line
+
+$ pwd
+$ ls
+$ man ls   // tells you what ls can do, q to quit
+$ clear   // clears the screen
+$ cd ../..
+$ cd ~/Desktop   // ~ means home folder, varies
+$ mkdir [new_directory]   // makes a directory
+$ touch [new_file].txt   // creates new text file
+$ echo "Potato Head to the rescue!" >> [file_name].txt   // saves that string to the file
+$ mv [fine_name] [new_file_path/file_name]
+$ echo "Blah blah blah" >> [new_file_path/file_name]   // appends another string to the file
+
+- relative file path is relative to your current location, absolute file bath starts from the home directory and builds path from there
+- up key cycles through previous commands
+- tab completion
+
+$ cat [file_one] [file_two]   // prints both files one after another on a newline
+$ cat [file_one] [file_two] > [file_three]   // save both files one after another in new file
+$ cat [file_three] > [file_two]   // overwrites contents of file_two with file_three
+$ cp [file_one] [new_file]   // copy file_one to a new file
+
+1.7 Starting Python
+
+$ python   // starts interactive mode
+$ quit()   // quites interactive mode
+
+1.8 Objects
+
+- objects are containers for data
+- each object in python has a type/class
+- python is strong typed: restricts operations you can perform based on an object's type, which keeps us from making some mistakes
+- weakly-typed languages do not restrict operations, but can be harder to figure out why functions or operations don't work
+
+1.9 Objects and Types
+- bool, booleans, True or False
+- int, integers, whole nmbers
+- float, floats, have decimal points or scientific notation
+- str, strings, have characters
+
+>>> type(-345)
+<class 'int'>
+
+>>> 4 + 3.5
+7.5   // returns float
+
+ - can cast/construct float(), int(), str()
+
+1.10 Representing Numbers
+
+- whole numbers best stored in int, no limit to how large the integer can be
+- noninteger best stored in float,
+- caution with float is a rounding error sometimes occurs
+
+1.11 Numbers
+
+>>> 14 / 5
+2.8
+
+- if you want to do integer division (or find quotient), use //
+>>> 14 // 5
+2
+
+- if you want the remainder, use mod operator %
+>>> 14 % 5
+4
+
+- exponents use **
+>>> 2 ** 2
+4
+
+- python uses PEMDAS
+
+- comparison operators: > < >= <= == !=
+
+>>> .1 + .1 + .1 == .3
+False
+- causes rounding error to compound, write code to anticipate rounding error
+
+1.12 Variables, Part 1
+
+- evaluate everything to the right of the = sign
+- no need for initialization
+- += -= *= /= //= %=
+- python is a dynamically typed language, so can reassign variable to different object types
+
+1.13 Variables, Part 2
+
+- variables are names we use to access objects instead of long, numerical memory locations
+- variables go into a special object called name space and are bound to their value, which is in object space
+- if we lose all tnames that point to an object, it's lost forever and the interpreter will garbage-collect it so memory can be reused
+- with dynamic typing, the names don't have types, but the objects do
+- good idea to include the type of object you're expecting at the end of your variable name
+
+1.14 Strings
+
+- create a string using single or double quotes
+- """Text""" will let you write multiple lines at the command line
+- Alternatively, you can create a newline at the command line with \ in a normal string
+- escape characters:
+    - \n   newline
+    - \t   tab
+    - \"   prints quotation marks
+    - \\   prints backslash
+- concatenation:
+    - >>> "Hi, " + "my name is" + " Alena!"
+      'Hi, my name is Alena'
+    - >>> "derp" * 4
+      'derpderpderpderp'
+- string characters are indexed at 0
+>>> my_string = "Potato"
+>>> print(my_string[0])
+'P'
+- slicing is [inclusive:exclusive:step]
+>>> my_string[1:4]
+'ota'
+>>> my_string[1:-1]   //in this case, same as my_string[1:5]
+'otat'
+>>> my_string[0:5:2]   // last argument is the step size
+'Ptt'
+>>> my_string[1:]
+'otato'
+>>> my_string[:-1]
+'Potat'
+>>> my_string[::-1]   // reverse the letters
+'otatoP'
+>>> my_string[:]
+'Potato'
+>>> my_string.upper()
+'POTATO'
+>>> my_string.lower()
+'potato'
+
+>>> name = input("Enter your name: ")   // will save user input as variable
+
+1.15 First Module
+
+- save python file with .py to indicate it is a python file
+- to run the file:
+>>> python3 file_name.py
+
+>>> print("My favorite number is", 7).  //concatenates number as a string and adds a space in front of it, can include multiple variables to print this way
+'My favorite number is 7'

@@ -1,0 +1,31 @@
+3.3 The IPython Notebook
+
+- use Anaconda Prompt to run
+> jupyter notebook
+
+- can write notes in markdown, can run python
+- use browser to create new notebook and navigate directories
+- file extension is .ipynb
+- Help > Keyboard Shortcuts for shortcuts
+- esc to jump to other cells, enter to edit current cell
+- control + enter to run current cell
+- can use command line code
+
+- magic commands (most start with %)
+> %quickref
+- information on magic commands
+
+> ?range
+- ? gives more information on a function you choose
+
+3.6 The Course Workflow
+
+- fork files over to your prepository, then clone to local machine
+- when navigating directories/files at command line on windows, use dir instead of ls
+
+> git status
+> git add .
+> git commit -m "message"
+> git push origin master
+
+- http://localhost:8888/tree

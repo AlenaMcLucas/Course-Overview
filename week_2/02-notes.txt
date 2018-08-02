@@ -1,0 +1,109 @@
+2.3 More Command Line Tools
+
+$ pwd
+$ find -name "*data*"   // looks recursively in current directory and everything below it, uses regex
+$ find file_path -name "*data*"   // can include a file path as well and many other parameters
+$ grep "Hello" file_path/my_file.txt will search the specific file for "Hello"
+$ grep "Hello" file_path/* will search all files in file path for "Hello"
+$ grep -r "Hello" .   // will search all files recursively in and below file path for "Hello"
+$ grep -r "Hello" file_* will search all files that are in directories that start with test_ for "Hello"
+
+BE CAREFUL WHEN RUNNING THIS CODE BECAUSE CHANGES ARE IRREVERSIBLE
+$ rm file_path/file_name
+$ rm file_path/*   // delete anything in this file path
+- rm only works on files, not directories
+$ rmdir file_path
+- will nonly delete directory that is empty
+
+$ ls | grep "test"   // | pipe passes output from one command to another, so results of grep for "test" will be listed
+$ echo "Does this contain a ?" | grep -o "?"
+?   // grep returns matching character "?" if string echoed contains "?"
+$ grep "echo" < file_path/file_name   // pipes file into the grep, returns that file was created with echo
+
+- can define functions at the command line
+
+2.4 Sequences
+
+- sequences are an ordered list of indexed items, which can be a mix of types; includes lists, tuples, arrays, etc
+>>> my_list = [1,2,1,2]   // create list
+>>> list(["hello"])   // pass a string to list() and it will create a list of each letter
+['h','e','l','l','o']
+>>> 3 in [1,2,3]   //returns True or False if 3 is in list
+True
+>>> 3 not in [1,2,3]
+False
+- join two sequences together using +, which will add second list to back of first list
+>>> [1,2,3] + [4,5,6]
+[1,2,3,4,5,6]
+- list_name[inclusive:exclusive:step]   // zero indexed
+- len(list_name)
+- max(list_name)
+- min(list_name)
+- list_name.index(item_searching_for)   // returns first index in list of item looking for
+- list_name.count(item_counting)   // returns count of item in list_name
+- these work on almost all sequences, not just lists
+
+2.5 Lists
+
+- lists are mutable, data is changeable
+- list_name.append(object)
+- list_name[index] = 10
+- list_name.extend([7,8])
+- del list_name[inclusive:exclusive:step]
+- list_name.clear()   // empties a list
+- list_name.insert(index, object)   // inserts object into index, shifts all other objects over
+- list_name.pop()   // pops last value from list and returns it, can pop an item at a specific index by passing index as a parameter
+- list_name.remove(object)   // remove first instance of object in list
+- list_name.sort()   // sorts list from low to high
+- list_name.reverse()   // reverses order of list
+
+2.6 Lists and Mutability
+
+- lists do not contain objects, it points/refers to a list whose indexes point/refer to objects
+- you can have two names that point to the same list, so if one is changed both will be changed
+- mutable objects can be contained in multiple lists, so be careful
+
+2.8.1 Mutability Part 1
+
+- lots of demonstrations of mutability and lists with list references
+
+>>> a_list = ['go']
+>>> a_list.append(a_list)
+>>> print(a_list)
+['go',[...]]   // circular reference, infinite length
+
+- nested lists
+- list_name.copy()   // creates new copy of list object instead of new references, note that inner lists are still references so considered a shallow copy
+
+>>> from copy import deepcopy
+- new_list = deepcopy(old_list)   // deep copy with no references anywhere to same lists, can be computationally expensive on large objects
+
+2.9 Tuples
+
+>>> (1, 2, 3)
+- similar functions to lists with max(), len(), slicing, concatenation
+- immutable, so functions very similar to strings
+- tuple(list_name)   // converts list to tuple
+- list(tuple_name)   // converts tuple to list
+- can do multiple variable assignments
+>>> low, high = 10, 20
+>>> print(low, high)
+10, 20
+
+2.10 Ranges
+
+- range(inclusive, exclusive, step)
+- can use range() to create list of ints
+
+2.11 Source Control
+
+- writing programs is an incremental process
+- source control management or version control is a system for organizing different versions of a project under development
+
+2.13 Git and Distributed Source Control
+
+- some are centralized, meaning they store all project files in one central location and allow different clients to check out files from there to work on
+- some are distributed, meaning every client has a full copy of every version of every file so there is no one point of failure (Git, Dropbox)
+- Git's synching is not automatic, you have to specify, and you are able to precisely decide which files to share and at what times
+
+- refer to my Git courses for a more in-depth learning of using Git
